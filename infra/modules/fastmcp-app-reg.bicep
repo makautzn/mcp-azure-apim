@@ -28,8 +28,8 @@ resource application  'Microsoft.Graph/applications@beta' = {
     
     preAuthorizedApplications: [
       {
-        appId: 'd4f80fbc-bfc9-4c81-849f-16ced65f5f0f' // VS code
-        //appId: '04b07795-8ddb-461a-bbee-02f9e1bf7b46' // Azure CLI
+        //appId: 'd4f80fbc-bfc9-4c81-849f-16ced65f5f0f' // VS code
+        appId: '04b07795-8ddb-461a-bbee-02f9e1bf7b46' // Azure CLI
         permissionIds: [
           guid(subscription().id, appName, 'mcp-access')
         ]

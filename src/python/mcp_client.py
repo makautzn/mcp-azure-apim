@@ -14,6 +14,7 @@ SETLISTAPI_SUBSCRIPTION_KEY = str(os.getenv("SETLISTAPI_SUBSCRIPTION_KEY"))
 print(f"🔗 Testing connection to {SETLISTAPI_MCP_ENDPOINT}...")
 
 async def main():
+    client = None
     try:
         async with Client(transport=StreamableHttpTransport(
             SETLISTAPI_MCP_ENDPOINT,
@@ -50,7 +51,8 @@ async def main():
         raise
     finally:
         print("👋 Closing client...")
-        await client.close()
+        if client:
+            await client.close()
 
 
 if __name__ == "__main__":
